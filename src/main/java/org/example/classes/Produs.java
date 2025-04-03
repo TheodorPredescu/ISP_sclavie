@@ -1,4 +1,4 @@
-package org.example;
+package org.example.classes;
 
 import java.time.LocalDate;
 
@@ -9,10 +9,10 @@ public class Produs {
     private LocalDate dataExpirare;
     private String codIdentificator;
     private Integer stocCurent;
-    private Integer stocMaxim;
-    private Boolean reducereApropiereExpirare;
+    protected Integer stocMaxim;
+    protected Integer reducereApropiereExpirare;
 
-    public Produs(String numeProdus, Boolean pret, LocalDate dataExpirare, String codIdentificator, Integer stocMaxim, Boolean reducereApropiereExpirare) {
+    public Produs(String numeProdus, Boolean pret, LocalDate dataExpirare, String codIdentificator, Integer stocMaxim, Integer reducereApropiereExpirare) {
         this.numeProdus = numeProdus;
         this.pret = pret;
         this.dataExpirare = dataExpirare;

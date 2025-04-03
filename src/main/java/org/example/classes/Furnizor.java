@@ -1,4 +1,4 @@
-package org.example;
+package org.example.classes;
 
 import java.util.ArrayList;
 
@@ -10,4 +10,7 @@ public class Furnizor {
     public Furnizor(String numeFirma) {
         this.numeFirma = numeFirma;
     }
+
+
+
 }
