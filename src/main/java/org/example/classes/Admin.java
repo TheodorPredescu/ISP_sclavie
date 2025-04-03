@@ -1,8 +1,6 @@
 package org.example.classes;
 
-import org.example.User;
 import org.example.enumerations.FurnizoriNume;
-import org.example.enumerations.ProduseNume;
 
 public class Admin extends User {
     void modificareReducereProdus(Produs produs, Integer stocMaxim, Integer reducereApropiereExpirare) {

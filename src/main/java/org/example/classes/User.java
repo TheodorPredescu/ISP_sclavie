@@ -1,4 +1,4 @@
-package org.example;
+package org.example.classes;
 
 public abstract class User {
     private String first_name;
