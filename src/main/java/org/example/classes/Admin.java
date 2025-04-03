@@ -23,6 +23,7 @@ public class Admin extends User {
     //va mai ganditi si voi
     ComandaProdus solicitareComanda(Produs produs, FurnizoriNume furnizor, Double pret) {
         // ComandaProdus comanda_noua = new ComandaProdus(produs, furnizor, );
+
         return null;
     }
 }
