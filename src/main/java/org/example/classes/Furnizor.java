@@ -1,13 +1,15 @@
 package org.example.classes;
 
+import org.example.enumerations.FurnizoriNume;
+
 import java.util.ArrayList;
 
 public class Furnizor {
 
-    private String numeFirma;
+    private FurnizoriNume numeFirma;
     private ArrayList<Produs> listaProduse;
 
-    public Furnizor(String numeFirma) {
+    public Furnizor(FurnizoriNume numeFirma) {
         this.numeFirma = numeFirma;
     }
 
