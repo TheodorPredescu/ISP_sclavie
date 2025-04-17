@@ -24,6 +24,11 @@ public class ComandaProdus {
         this.cerereProdusAdmin = cerereProdusAdmin;
         this.cerereProdusFurnizor = cerereProdusFurnizor;
     }
+
+    public void setPretCumparare(Double pret) {
+        this.pretCumparare = pret;
+    }
+
     public Boolean getCerereProdusFurnizor(){
         return cerereProdusFurnizor;
     }
@@ -37,4 +42,11 @@ public class ComandaProdus {
         cerereProdusAdmin = val;
     }
     public void SolicitareComanda(){}
+
+    public void afisare(){
+        System.out.println("Produs: " + this.produs);
+        System.out.println("Furnizor: " + this.furnizor);
+        System.out.println("Cantitate: " + this.numarBucatiComanda);
+        System.out.println("Pret: " + this.pretCumparare);
+    }
 }
