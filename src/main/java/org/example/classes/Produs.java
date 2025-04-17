@@ -10,7 +10,7 @@ public class Produs {
     private Double pret;
     private LocalDate dataExpirare;
     private String codIdentificator;
-    private Integer stocCurent;
+    private Integer stocCurent = 0;
     protected Integer stocMaxim;
     protected Integer reducereApropiereExpirare;
 
@@ -22,12 +22,8 @@ public class Produs {
         this.stocMaxim = stocMaxim;
         this.reducereApropiereExpirare = reducereApropiereExpirare;
     }
-    public Boolean cumparaProduse(Integer numarDeProduse) {
-
-        if (this.stocCurent - numarDeProduse < 0) return false;
-
-        this.stocCurent -= numarDeProduse;
-        return true;
+    public ProduseNume nume(){
+        return this.numeProdus;
     }
     public Integer verificareNumarProduse () {
         return this.stocCurent;
@@ -43,5 +39,12 @@ public class Produs {
     public void afisare(){
         System.out.println("Nume produs: " + numeProdus);
         System.out.println("Pret: " + pret);
+        System.out.println("Data expirare: " + dataExpirare);
+        System.out.println("Stoc Curent: " + stocCurent);
+        System.out.println("Stoc Maxim: " + stocMaxim);
+        System.out.println("Reducere: " + reducereApropiereExpirare);
+    }
+    public void actualizareStocCurent(Integer stocNou){
+        this.stocCurent = stocNou;
     }
 }

@@ -22,4 +22,14 @@ public class Furnizor {
             produs.afisare();
         }
     }
+    public void adaugaStocProdus(Produs produs, Integer numarProduse){
+        if(numarProduse < produs.stocMaxim){
+            produs.actualizareStocCurent(numarProduse);
+            System.out.println("Produsul " + produs.nume() + " are stocul curent: " + numarProduse);
+        }
+        else {
+            System.err.println("Stocul curent este mai mare decat stocul maxim!");
+        }
+    }
+    // Functie acceptare si contra oferta
 }

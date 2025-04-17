@@ -3,7 +3,7 @@ package org.example.classes;
 import org.example.enumerations.FurnizoriNume;
 
 public class Admin extends User {
-    void modificareReducereProdus(Produs produs, Integer stocMaxim, Integer reducereApropiereExpirare) {
+    public static void modificareReducereProdus(Produs produs, Integer stocMaxim, Integer reducereApropiereExpirare) {
         if (reducereApropiereExpirare >= 0 && reducereApropiereExpirare <= 100) {
             produs.reducereApropiereExpirare = reducereApropiereExpirare;
         }else {
@@ -16,12 +16,7 @@ public class Admin extends User {
             System.err.println("Setare stocMaxim cu o valoare invalida!");
         }
     }
-
-    //Aici nush sigur daca e chiar ok, am adaugat enumeratii pentru nume furnizor si nume produse dar nu sunt sigur ca e cea mai ok varianta;
-    //va mai ganditi si voi
-    ComandaProdus solicitareComanda(Produs produs, FurnizoriNume furnizor, Double pret) {
-        // ComandaProdus comanda_noua = new ComandaProdus(produs, furnizor, );
-
-        return null;
-    }
+    // Functie acceptare si contra oferta
+    public void confirmareComanda(){}
+    public void modificareComanda(){}
 }
