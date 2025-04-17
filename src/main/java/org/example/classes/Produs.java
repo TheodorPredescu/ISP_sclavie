@@ -12,9 +12,9 @@ public class Produs {
     private String codIdentificator;
     private Integer stocCurent = 0;
     protected Integer stocMaxim;
-    protected Integer reducereApropiereExpirare;
+    protected Float reducereApropiereExpirare;
 
-    public Produs(ProduseNume numeProdus, Double pret, LocalDate dataExpirare, String codIdentificator, Integer stocMaxim, Integer reducereApropiereExpirare) {
+    public Produs(ProduseNume numeProdus, Double pret, LocalDate dataExpirare, String codIdentificator, Integer stocMaxim, Float reducereApropiereExpirare) {
         this.numeProdus = numeProdus;
         this.pret = pret;
         this.dataExpirare = dataExpirare;
@@ -49,5 +49,13 @@ public class Produs {
     }
     public Integer getStocCurent(){
         return this.stocCurent;
+    }
+    public void aplicaReducereDacaExpira() {
+        LocalDate azi = LocalDate.now();
+        if (dataExpirare != null && dataExpirare.minusDays(5).isBefore(azi)) {
+            double discount = pret * (reducereApropiereExpirare / 100);
+            pret = pret - discount;
+            System.out.println("Reducere aplicata produsului " + numeProdus + ". Pret nou: " + pret);
+        }
     }
 }

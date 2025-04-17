@@ -16,4 +16,9 @@ public class Magazin {
     public Produs getProdus(Integer pos){
         return produse.get(pos);
     }
+    public void aplicareReduceriProduseAproapeExpirare() {
+        for (Produs produs : produse) {
+            produs.aplicaReducereDacaExpira();
+        }
+    }
 }

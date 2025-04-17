@@ -5,7 +5,7 @@ import org.example.enumerations.FurnizoriNume;
 import java.util.Scanner;
 
 public class Admin extends User {
-    public static void modificareReducereProdus(Produs produs, Integer stocMaxim, Integer reducereApropiereExpirare) {
+    public static void modificareReducereProdus(Produs produs, Integer stocMaxim, Float reducereApropiereExpirare) {
         if (reducereApropiereExpirare >= 0 && reducereApropiereExpirare <= 100) {
             produs.reducereApropiereExpirare = reducereApropiereExpirare;
         }else {
