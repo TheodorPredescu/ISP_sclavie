@@ -1,10 +1,8 @@
 package org.example;
 
-import org.example.classes.Furnizor;
-import org.example.classes.Produs;
+import org.example.classes.*;
 import org.example.enumerations.FurnizoriNume;
 import org.example.enumerations.ProduseNume;
-import org.example.classes.Admin;
 
 import java.awt.*;
 import java.time.LocalDate;
@@ -16,11 +14,12 @@ public class Main {
         Produs produs2 = new Produs(ProduseNume.LAPTE,13.69, LocalDate.parse("2025-03-05") ,"696669",55,15);
         primuFurnizor.adaugaProduse(produs1);
         primuFurnizor.adaugaProduse(produs2);
-        primuFurnizor.adaugaStocProdus(produs1,68);
-        primuFurnizor.adaugaStocProdus(produs2,54);
-        primuFurnizor.afisare();
-        Admin.modificareReducereProdus(produs1,70,15);
-        System.out.println("-----------------------------");
-        primuFurnizor.afisare();
+        Magazin magazinulMeu = new Magazin();
+        magazinulMeu.adaugaProduse(produs1);
+        magazinulMeu.adaugaProduse(produs2);
+        primuFurnizor.adaugaStocProdus(magazinulMeu.getProdus(0),50);
+        Admin.modificareReducereProdus(magazinulMeu.getProdus(0),77,15);
+        Client.achizitieProdus(magazinulMeu.getProdus(0),30);
+        magazinulMeu.afisare();
     }
 }

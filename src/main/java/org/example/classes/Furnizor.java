@@ -22,13 +22,16 @@ public class Furnizor {
             produs.afisare();
         }
     }
-    public void adaugaStocProdus(Produs produs, Integer numarProduse){
-        if(numarProduse < produs.stocMaxim){
-            produs.actualizareStocCurent(numarProduse);
-            System.out.println("Produsul " + produs.nume() + " are stocul curent: " + numarProduse);
+    public void adaugaStocProdus(Produs produs, Integer numarProduse) {
+        if (listaProduse.contains(produs)) {
+            if (numarProduse < produs.stocMaxim) {
+                produs.actualizareStocCurent(numarProduse);
+            } else {
+                System.err.println("Stocul curent este mai mare decat stocul maxim!");
+            }
         }
         else {
-            System.err.println("Stocul curent este mai mare decat stocul maxim!");
+            System.err.println("Acest furnizor nu detine acest produs!");
         }
     }
     // Functie acceptare si contra oferta

@@ -47,4 +47,7 @@ public class Produs {
     public void actualizareStocCurent(Integer stocNou){
         this.stocCurent = stocNou;
     }
+    public Integer getStocCurent(){
+        return this.stocCurent;
+    }
 }
