@@ -7,12 +7,19 @@ import java.util.ArrayList;
 public class Furnizor {
 
     private FurnizoriNume numeFirma;
-    private ArrayList<Produs> listaProduse;
+    private ArrayList<Produs> listaProduse = new ArrayList<>();
 
     public Furnizor(FurnizoriNume numeFirma) {
         this.numeFirma = numeFirma;
     }
-
-
-
+    public void adaugaProduse(Produs produs){
+        this.listaProduse.add(produs);
+    }
+    public void afisare(){
+        System.out.println("Nume Firma: " + numeFirma);
+        System.out.println("Produse: ");
+        for(Produs produs:listaProduse){
+            produs.afisare();
+        }
+    }
 }

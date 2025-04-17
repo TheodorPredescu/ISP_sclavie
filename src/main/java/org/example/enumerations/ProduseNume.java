@@ -1,6 +1,34 @@
 package org.example.enumerations;
 
 public enum ProduseNume {
-    dulceata,
-    laxative
+    LAPTE,
+    PAINE,
+    OUA,
+    FAINA,
+    ZAHAR,
+    ULEI,
+    APA_MINERALA,
+    SARE,
+    PIPER,
+    CAFEA,
+    CEAI,
+    CIOCOLATA,
+    BISCUITI,
+    SUC_PORTOCALE,
+    COLA,
+    IAURT,
+    BRANZA,
+    CASCAVAL,
+    UNT,
+    SALAM,
+    SNACKS,
+    OREZ,
+    PASTE,
+    SAPUN,
+    DETERGENT,
+    HARTIE_IGIENICA,
+    SAMPOON,
+    PASTA_DE_DINTI,
+    DEODORANT,
+    SERVETELE
 }
