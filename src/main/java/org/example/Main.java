@@ -21,5 +21,6 @@ public class Main {
         Admin.modificareReducereProdus(magazinulMeu.getProdus(0),77,15);
         Client.achizitieProdus(magazinulMeu.getProdus(0),30);
         magazinulMeu.afisare();
+        System.out.println("------------------------------");
     }
 }
