@@ -5,7 +5,10 @@ import org.example.enumerations.FurnizoriNume;
 import java.util.Scanner;
 
 public class Admin extends User {
-    public static void modificareReducereProdus(Produs produs, Integer stocMaxim, Float reducereApropiereExpirare) {
+    public Admin(String first_name,String last_name,String mail,String parola,Double buget){
+        super(first_name,last_name,mail,parola,buget);
+    }
+    public void modificareReducereProdus(Produs produs, Integer stocMaxim, Float reducereApropiereExpirare) {
         if (reducereApropiereExpirare >= 0 && reducereApropiereExpirare <= 100) {
             produs.reducereApropiereExpirare = reducereApropiereExpirare;
         }else {
@@ -64,5 +67,10 @@ public class Admin extends User {
     }
     public void modificareComanda(ComandaProdus comanda, Double pret){
         comanda.setPretCumparare(pret);
+    }
+    public void verificareStoc(Produs produs) throws InterruptedException {
+        if(produs.verifcareStoc()){
+            throw new InterruptedException("Produsul " + produs.nume() + " nu mai e in stoc");
+        }
     }
 }

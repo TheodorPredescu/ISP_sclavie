@@ -18,10 +18,23 @@ public class Main {
         magazinulMeu.adaugaProduse(produs1);
         magazinulMeu.adaugaProduse(produs2);
         primuFurnizor.adaugaStocProdus(magazinulMeu.getProdus(0),50);
-        Admin.modificareReducereProdus(magazinulMeu.getProdus(0),77,15F);
-        Client.achizitieProdus(magazinulMeu.getProdus(0),30);
         magazinulMeu.aplicareReduceriProduseAproapeExpirare();
         magazinulMeu.afisare();
         System.out.println("------------------------------");
+        Admin administrator = new Admin("Theo","Zeciu","test123@gmail.com","parola",69.420);
+        Client client = new Client("Maria","Ioana","mariaioanabun@gmail.com","parolaa",77.25);
+        while (true) {
+            client.achizitieProdus(magazinulMeu.getProdus(0), 25);
+            System.out.println("------------------------------");
+            magazinulMeu.afisare();
+            try {
+                administrator.verificareStoc(magazinulMeu.getProdus(0));
+                Thread.sleep(10000);
+            }
+            catch (InterruptedException e) {
+                e.printStackTrace();
+                break;
+            }
+        }
     }
 }

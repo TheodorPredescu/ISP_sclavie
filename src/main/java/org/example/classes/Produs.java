@@ -58,4 +58,7 @@ public class Produs {
             System.out.println("Reducere aplicata produsului " + numeProdus + ". Pret nou: " + pret);
         }
     }
+    public Boolean verifcareStoc(){
+        return stocCurent <= 0;
+    }
 }
