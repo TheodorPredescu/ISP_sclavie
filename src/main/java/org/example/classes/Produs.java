@@ -9,32 +9,21 @@ public class Produs {
     private ProduseNume numeProdus;
     private Double pret;
     private LocalDate dataExpirare;
-    private String codIdentificator;
     private Integer stocCurent = 0;
     protected Integer stocMaxim;
     protected Float reducereApropiereExpirare;
+    private Integer zileDeReducere;
 
-    public Produs(ProduseNume numeProdus, Double pret, LocalDate dataExpirare, String codIdentificator, Integer stocMaxim, Float reducereApropiereExpirare) {
+    public Produs(ProduseNume numeProdus, Double pret, LocalDate dataExpirare, Integer stocMaxim, Float reducereApropiereExpirare,Integer zileDeReducere) {
         this.numeProdus = numeProdus;
         this.pret = pret;
         this.dataExpirare = dataExpirare;
-        this.codIdentificator = codIdentificator;
         this.stocMaxim = stocMaxim;
         this.reducereApropiereExpirare = reducereApropiereExpirare;
+        this.zileDeReducere = zileDeReducere;
     }
     public ProduseNume nume(){
         return this.numeProdus;
-    }
-    public Integer verificareNumarProduse () {
-        return this.stocCurent;
-    }
-
-    public LocalDate verificareDataExpirare() {
-        return this.dataExpirare;
-    }
-
-    public void actualizareStocMaxim() {
-        this.stocCurent = this.stocMaxim;
     }
     public void afisare(){
         System.out.println("Nume produs: " + numeProdus);
@@ -52,7 +41,7 @@ public class Produs {
     }
     public void aplicaReducereDacaExpira() {
         LocalDate azi = LocalDate.now();
-        if (dataExpirare != null && dataExpirare.minusDays(5).isBefore(azi)) {
+        if (dataExpirare != null && dataExpirare.minusDays(this.zileDeReducere).isBefore(azi)) {
             double discount = pret * (reducereApropiereExpirare / 100);
             pret = pret - discount;
             System.out.println("Reducere aplicata produsului " + numeProdus + ". Pret nou: " + pret);

@@ -10,8 +10,8 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
         Furnizor primuFurnizor = new Furnizor(FurnizoriNume.NESTLE);
-        Produs produs1 = new Produs(ProduseNume.BRANZA,25.5, LocalDate.parse("2025-03-01") ,"696969",69,10F);
-        Produs produs2 = new Produs(ProduseNume.LAPTE,13.69, LocalDate.parse("2025-03-05") ,"696669",55,15F);
+        Produs produs1 = new Produs(ProduseNume.BRANZA,25.5, LocalDate.parse("2025-07-10") ,69,10F,3);
+        Produs produs2 = new Produs(ProduseNume.LAPTE,13.69, LocalDate.parse("2025-03-05") ,55,15F,5);
         primuFurnizor.adaugaProduse(produs1);
         primuFurnizor.adaugaProduse(produs2);
         Magazin magazinulMeu = new Magazin();
@@ -37,7 +37,7 @@ public class Main {
             }
         }
         System.out.println("------------------------------");
-        ComandaProdus produse = new ComandaProdus(produs1,primuFurnizor,50,150.50,LocalDate.parse("2025-03-01"),LocalDate.parse("2025-03-01"),false,false,administrator);
+        ComandaProdus produse = new ComandaProdus(produs1,primuFurnizor,50,150.50,false,false,administrator);
         primuFurnizor.confirmareComanda(produse);
         System.out.println("------------------------------");
         magazinulMeu.afisare();
