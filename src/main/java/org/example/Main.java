@@ -32,9 +32,14 @@ public class Main {
                 Thread.sleep(10000);
             }
             catch (InterruptedException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
                 break;
             }
         }
+        System.out.println("------------------------------");
+        ComandaProdus produse = new ComandaProdus(produs1,primuFurnizor,50,150.50,LocalDate.parse("2025-03-01"),LocalDate.parse("2025-03-01"),false,false,administrator);
+        primuFurnizor.confirmareComanda(produse);
+        System.out.println("------------------------------");
+        magazinulMeu.afisare();
     }
 }

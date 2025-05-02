@@ -8,13 +8,14 @@ public class ComandaProdus {
     private Furnizor furnizor;
     private Integer numarBucatiComanda;
     private Double pretCumparare;
-    private LocalDateTime dataCerere;
+    private LocalDate dataCerere;
     private LocalDate dataLivrare;
     private Boolean cerereProdusFurnizor;
     private Boolean cerereProdusAdmin;
+    private Admin admin;
 
 
-    public ComandaProdus(Produs produs, Furnizor furnizor, Integer numarBucatiComanda, Double pretCumparare, LocalDateTime dataCerere, LocalDate dataLivrare, Boolean cerereProdusFurnizor, Boolean cerereProdusAdmin) {
+    public ComandaProdus(Produs produs, Furnizor furnizor, Integer numarBucatiComanda, Double pretCumparare, LocalDate dataCerere, LocalDate dataLivrare, Boolean cerereProdusFurnizor, Boolean cerereProdusAdmin, Admin admin) {
         this.produs = produs;
         this.furnizor = furnizor;
         this.numarBucatiComanda = numarBucatiComanda;
@@ -23,12 +24,21 @@ public class ComandaProdus {
         this.dataLivrare = dataLivrare;
         this.cerereProdusAdmin = cerereProdusAdmin;
         this.cerereProdusFurnizor = cerereProdusFurnizor;
+        this.admin = admin;
     }
 
     public void setPretCumparare(Double pret) {
         this.pretCumparare = pret;
     }
-
+    public void setProdusCumparare(Produs produs) {
+        this.produs = produs;
+    }
+    public void setFurnizorCumparare(Furnizor furnizor) {
+        this.furnizor = furnizor;
+    }
+    public void setNrBucatiCumparare(Integer numarBucatiComanda) {
+        this.numarBucatiComanda = numarBucatiComanda;
+    }
     public Boolean getCerereProdusFurnizor(){
         return cerereProdusFurnizor;
     }
@@ -41,11 +51,22 @@ public class ComandaProdus {
     public void setCerereProdusAdmin(Boolean val){
         cerereProdusAdmin = val;
     }
-    public void SolicitareComanda(){}
+    public Furnizor getFurnizor(){
+        return this.furnizor;
+    }
+    public Admin getAdmin(){
+        return this.admin;
+    }
+    public void SolicitareComanda(Produs produs, Furnizor furnizor, Integer numarBucatiComanda, Double pretCumparare){
+        setProdusCumparare(produs);
+        setPretCumparare(pretCumparare);
+        setFurnizorCumparare(furnizor);
+        setNrBucatiCumparare(numarBucatiComanda);
+    }
 
     public void afisare(){
-        System.out.println("Produs: " + this.produs);
-        System.out.println("Furnizor: " + this.furnizor);
+        System.out.println("Produs: " + this.produs.nume());
+        System.out.println("Furnizor: " + this.furnizor.getNumeFirma());
         System.out.println("Cantitate: " + this.numarBucatiComanda);
         System.out.println("Pret: " + this.pretCumparare);
     }

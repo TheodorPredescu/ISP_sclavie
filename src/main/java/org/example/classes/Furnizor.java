@@ -16,6 +16,9 @@ public class Furnizor {
     public void adaugaProduse(Produs produs){
         this.listaProduse.add(produs);
     }
+    public FurnizoriNume getNumeFirma(){
+        return numeFirma;
+    }
     public void afisare(){
         System.out.println("Nume Firma: " + numeFirma);
         System.out.println("Produse: ");
@@ -43,17 +46,18 @@ public class Furnizor {
         while (!worked) {
 
             System.out.println();
-            System.out.println("Cerere noua!");
+            System.out.println("Cerere noua catre Furnizor!");
             System.out.println();
             comanda.afisare();
-            System.out.print("Se necesita confirmarea unei comenzi(y/n): ");
+            System.out.print("Se necesita confirmarea unei oferte de catre Furnizor(y/n): ");
             Scanner scanner = new Scanner(System.in);
             String instr = scanner.nextLine();
+            comanda.setCerereProdusAdmin(true);
             switch (instr) {
                 case "y":
-                    comanda.setCerereProdusAdmin(true);
+                    comanda.setCerereProdusFurnizor(true);
                     worked = true;
-                    System.out.println("Comanda trimisa.");
+                    System.out.println("Comanda confirmata Furnizor.");
                     break;
                 case "n":
                     comanda.setCerereProdusFurnizor(false);
@@ -63,7 +67,7 @@ public class Furnizor {
                     while (redo_command) {
                         redo_command = false;
                         try {
-                            System.out.print("Pret propus: ");
+                            System.out.print("Pret propus de la Furnizor: ");
                             String x = scanner.nextLine();
                             pret = Double.valueOf(x);
                         } catch (Exception e) {
@@ -72,6 +76,7 @@ public class Furnizor {
                         }
                     }
                     modificareComanda(comanda, pret);
+                    comanda.getAdmin().confirmareComanda(comanda);
                     break;
                 default:
                     System.out.println("Comanda invalida, reincearca!");

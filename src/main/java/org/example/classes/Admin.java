@@ -28,17 +28,18 @@ public class Admin extends User {
         while (!worked){
 
             System.out.println();
-            System.out.println("Cerere noua!");
+            System.out.println("Cerere noua catre Admin!");
             System.out.println();
             comanda.afisare();
-            System.out.print("Se necesita confirmarea unei comenzi(y/n): ");
+            System.out.print("Se necesita confirmarea unei comenzi de catre Admin(y/n): ");
             Scanner scanner = new Scanner(System.in);
             String instr = scanner.nextLine();
+            comanda.setCerereProdusFurnizor(true);
             switch (instr) {
                 case "y":
                     comanda.setCerereProdusAdmin(true);
                     worked = true;
-                    System.out.println("Comanda trimisa.");
+                    System.out.println("Comanda confirmata Admin.");
                     break;
                 case "n":
                     comanda.setCerereProdusAdmin(false);
@@ -48,7 +49,7 @@ public class Admin extends User {
                     while (redo_command) {
                         redo_command = false;
                         try{
-                            System.out.print("Pret propus: ");
+                            System.out.print("Pret propus de la Admin: ");
                             String x = scanner.nextLine();
                             pret = Double.valueOf(x);
                         }catch (Exception e) {
@@ -57,6 +58,7 @@ public class Admin extends User {
                         }
                     }
                     modificareComanda(comanda, pret);
+                    comanda.getFurnizor().confirmareComanda(comanda);
                     break;
                 default:
                     System.out.println("Comanda invalida, reincearca!");
