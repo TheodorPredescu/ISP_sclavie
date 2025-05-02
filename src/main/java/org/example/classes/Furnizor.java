@@ -40,11 +40,6 @@ public class Furnizor {
     }
     // Functie acceptare si contra oferta
     public void confirmareComanda(ComandaProdus comanda) {
-
-        Boolean worked = false;
-
-        while (!worked) {
-
             System.out.println();
             System.out.println("Cerere noua catre Furnizor!");
             System.out.println();
@@ -56,8 +51,8 @@ public class Furnizor {
             switch (instr) {
                 case "y":
                     comanda.setCerereProdusFurnizor(true);
-                    worked = true;
                     System.out.println("Comanda confirmata Furnizor.");
+                    comanda.getFurnizor().adaugaStocProdus(comanda.getProdus(),comanda.getNumarBucatiComanda());
                     break;
                 case "n":
                     comanda.setCerereProdusFurnizor(false);
@@ -83,7 +78,6 @@ public class Furnizor {
                     System.out.println();
                     break;
             }
-        }
     }
     public void modificareComanda(ComandaProdus comanda, Double pret) {
         comanda.setPretCumparare(pret);

@@ -23,10 +23,6 @@ public class Admin extends User {
     }
     // Functie acceptare si contra oferta
     public void confirmareComanda(ComandaProdus comanda){
-        Boolean worked = false;
-
-        while (!worked){
-
             System.out.println();
             System.out.println("Cerere noua catre Admin!");
             System.out.println();
@@ -38,8 +34,8 @@ public class Admin extends User {
             switch (instr) {
                 case "y":
                     comanda.setCerereProdusAdmin(true);
-                    worked = true;
                     System.out.println("Comanda confirmata Admin.");
+                    comanda.getFurnizor().adaugaStocProdus(comanda.getProdus(),comanda.getNumarBucatiComanda());
                     break;
                 case "n":
                     comanda.setCerereProdusAdmin(false);
@@ -65,8 +61,8 @@ public class Admin extends User {
                     System.out.println();
                     break;
             }
-        }
     }
+
     public void modificareComanda(ComandaProdus comanda, Double pret){
         comanda.setPretCumparare(pret);
     }

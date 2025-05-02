@@ -57,6 +57,11 @@ public class ComandaProdus {
     public Admin getAdmin(){
         return this.admin;
     }
+    public Boolean eConfirmata(){
+        if(this.cerereProdusFurnizor == true && this.cerereProdusAdmin == true)
+            return true;
+        return false;
+    }
     public void SolicitareComanda(Produs produs, Furnizor furnizor, Integer numarBucatiComanda, Double pretCumparare){
         setProdusCumparare(produs);
         setPretCumparare(pretCumparare);
@@ -69,5 +74,12 @@ public class ComandaProdus {
         System.out.println("Furnizor: " + this.furnizor.getNumeFirma());
         System.out.println("Cantitate: " + this.numarBucatiComanda);
         System.out.println("Pret: " + this.pretCumparare);
+    }
+
+    public Produs getProdus() {
+        return produs;
+    }
+    public Integer getNumarBucatiComanda(){
+        return numarBucatiComanda;
     }
 }
