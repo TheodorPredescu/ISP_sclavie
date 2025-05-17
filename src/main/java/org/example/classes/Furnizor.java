@@ -94,6 +94,10 @@ public class Furnizor {
         else {
             comanda.setCerereProdusFurnizor(false);
             Double pret = comanda.getPretCumparare() + comanda.getPretCumparare()*0.05;
+            if(pret < comanda.getProdus().getPret()*0.8) {
+                System.out.println("Oferta refuzata!");
+                return;
+            }
             System.out.println("Pret propus de la Furnizor: " + pret);
             System.out.println();
             modificareComanda(comanda, pret);
