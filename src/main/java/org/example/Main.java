@@ -22,23 +22,14 @@ public class Main {
         magazinulMeu.afisare();
         System.out.println("------------------------------");
         Admin administrator = new Admin("Theo","Zeciu","test123@gmail.com","parola",69.420);
+        magazinulMeu.setAdministrator(administrator);
         Client client = new Client("Maria","Ioana","mariaioanabun@gmail.com","parolaa",77.25);
-        while (true) {
-            client.achizitieProdus(magazinulMeu.getProdus(0), 25);
+        while (administrator.verificareStoc(magazinulMeu.getProdus(0))) {
+            client.achizitieProdus(magazinulMeu.getProdus(0), 25,magazinulMeu);
             System.out.println("------------------------------");
             magazinulMeu.afisare();
-            try {
-                administrator.verificareStoc(magazinulMeu.getProdus(0));
-                Thread.sleep(10000);
-            }
-            catch (InterruptedException e) {
-                //e.printStackTrace();
-                break;
-            }
         }
-        System.out.println("------------------------------");
-        ComandaProdus produse = new ComandaProdus(produs1,primuFurnizor,50,150.50,false,false,administrator);
-        primuFurnizor.confirmareComanda(produse);
+        client.achizitieProdus(magazinulMeu.getProdus(0), 25,magazinulMeu);
         System.out.println("------------------------------");
         magazinulMeu.afisare();
     }

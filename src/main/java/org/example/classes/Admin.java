@@ -66,9 +66,10 @@ public class Admin extends User {
     public void modificareComanda(ComandaProdus comanda, Double pret){
         comanda.setPretCumparare(pret);
     }
-    public void verificareStoc(Produs produs) throws InterruptedException {
+    public Boolean verificareStoc(Produs produs)  {
         if(produs.verifcareStoc()){
-            throw new InterruptedException("Produsul " + produs.nume() + " nu mai e in stoc");
+            return false;
         }
+        return true;
     }
 }

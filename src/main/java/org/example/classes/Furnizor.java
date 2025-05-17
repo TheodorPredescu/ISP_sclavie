@@ -15,6 +15,7 @@ public class Furnizor {
     }
     public void adaugaProduse(Produs produs){
         this.listaProduse.add(produs);
+        produs.setFurnizor(this);
     }
     public FurnizoriNume getNumeFirma(){
         return numeFirma;
@@ -28,7 +29,7 @@ public class Furnizor {
     }
     public void adaugaStocProdus(Produs produs, Integer numarProduse) {
         if (listaProduse.contains(produs)) {
-            if (numarProduse < produs.stocMaxim) {
+            if (numarProduse <= produs.stocMaxim) {
                 produs.actualizareStocCurent(numarProduse);
             } else {
                 System.err.println("Stocul curent este mai mare decat stocul maxim!");

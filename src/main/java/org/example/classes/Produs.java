@@ -13,6 +13,7 @@ public class Produs {
     protected Integer stocMaxim;
     protected Float reducereApropiereExpirare;
     private Integer zileDeReducere;
+    private Furnizor furnizor;
 
     public Produs(ProduseNume numeProdus, Double pret, LocalDate dataExpirare, Integer stocMaxim, Float reducereApropiereExpirare,Integer zileDeReducere) {
         this.numeProdus = numeProdus;
@@ -39,6 +40,9 @@ public class Produs {
     public Integer getStocCurent(){
         return this.stocCurent;
     }
+    public Double getPret(){
+        return this.pret;
+    }
     public void aplicaReducereDacaExpira() {
         LocalDate azi = LocalDate.now();
         if (dataExpirare != null && dataExpirare.minusDays(this.zileDeReducere).isBefore(azi)) {
@@ -49,5 +53,11 @@ public class Produs {
     }
     public Boolean verifcareStoc(){
         return stocCurent <= 0;
+    }
+    public void setFurnizor(Furnizor furnizor){
+        this.furnizor = furnizor;
+    }
+    public Furnizor getFurnizor(){
+        return this.furnizor;
     }
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Magazin {
     private ArrayList<Produs> produse = new ArrayList<Produs>();
+    private Admin administrator;
     public void adaugaProduse(Produs produs){
         this.produse.add(produs);
     }
@@ -20,5 +21,15 @@ public class Magazin {
         for (Produs produs : produse) {
             produs.aplicaReducereDacaExpira();
         }
+    }
+    public void reincarcareStoc(Produs produs,Furnizor furnizor, Admin administrator){
+        ComandaProdus produse = new ComandaProdus(produs,furnizor,produs.stocMaxim,produs.getPret()*0.8,false,false,administrator);
+        furnizor.confirmareComanda(produse);
+    }
+    public void setAdministrator(Admin administrator){
+        this.administrator = administrator;
+    }
+    public Admin getAdministrator(){
+        return this.administrator;
     }
 }
