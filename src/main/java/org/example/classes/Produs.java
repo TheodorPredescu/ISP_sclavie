@@ -61,4 +61,7 @@ public class Produs {
     public Furnizor getFurnizor(){
         return this.furnizor;
     }
+    public ProduseNume getNumeProdus(){
+        return this.numeProdus;
+    }
 }

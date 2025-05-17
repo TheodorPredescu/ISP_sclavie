@@ -1,10 +1,12 @@
 package org.example.classes;
 
+import org.example.enumerations.ProduseNume;
+
 import java.util.ArrayList;
 
 public class Magazin {
     private ArrayList<Produs> produse = new ArrayList<Produs>();
-    private Admin administrator;
+    private Admin administrator = null;
     public void adaugaProduse(Produs produs){
         this.produse.add(produs);
     }
@@ -31,5 +33,15 @@ public class Magazin {
     }
     public Admin getAdministrator(){
         return this.administrator;
+    }
+
+    public Integer getNumarProduse(ProduseNume numeProdus){
+        Integer numarProduse = 0;
+
+        for (Produs prod : produse) {
+            if (prod.getNumeProdus().compareTo(numeProdus) == 0) numarProduse++;
+        }
+
+        return numarProduse;
     }
 }
