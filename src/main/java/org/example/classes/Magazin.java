@@ -8,6 +8,15 @@ public class Magazin {
     private ArrayList<Produs> produse = new ArrayList<Produs>();
     private Admin administrator = null;
     public void adaugaProduse(Produs produs){
+
+        for (Produs elem : produse) {
+            if (elem.equals(produs)) {
+                elem.actualizareStocCurent(elem.getStocCurent() + 1);
+                System.out.println("Sunt " + elem.getStocCurent() + " produse pentru " + elem.getNumeProdus() + ".");
+                return;
+            }
+        }
+        System.out.println("Este " + produs.getStocCurent() + " produs pentru " + produs.getNumeProdus() + ".");
         this.produse.add(produs);
     }
     public void afisare(){
@@ -36,12 +45,12 @@ public class Magazin {
     }
 
     public Integer getNumarProduse(ProduseNume numeProdus){
-        Integer numarProduse = 0;
 
         for (Produs prod : produse) {
-            if (prod.getNumeProdus().compareTo(numeProdus) == 0) numarProduse++;
+            if (prod.getNumeProdus().equals(numeProdus)) {
+                return prod.getStocCurent();
+            }
         }
-
-        return numarProduse;
+        return -1;
     }
 }

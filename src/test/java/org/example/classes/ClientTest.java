@@ -19,6 +19,8 @@ class ClientTest {
         Magazin magazin = new Magazin();
         magazin.adaugaProduse(produs1);
         magazin.adaugaProduse(produs2);
+        magazin.adaugaProduse(produs3);
+        magazin.adaugaProduse(produs4);
 
         Admin administrator = new Admin("Theo","Zeciu","test123@gmail.com","parola",69.420);
         magazin.setAdministrator(administrator);
@@ -29,7 +31,12 @@ class ClientTest {
         Boolean sol2 = client.adaugaInCos(produs1, 1, magazin);
         assertTrue(sol2);
 //
-        Boolean sol3 = client.adaugaInCos(produs1, 2, magazin);
-//        assertTrue(sol3);
+         //Ramane fara bani
+        Boolean sol3 = client.adaugaInCos(produs2, 2, magazin);
+        assertFalse(sol3);
+
+        Client client2 = new Client("Theodor", "Predescu", "testare@gmail.com", "parola", 40d);
+        assertTrue(client2.adaugaInCos(produs4, 2, magazin));
+
     }
 }

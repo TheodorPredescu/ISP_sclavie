@@ -9,7 +9,7 @@ public class Produs {
     private ProduseNume numeProdus;
     private Double pret;
     private LocalDate dataExpirare;
-    private Integer stocCurent = 0;
+    private Integer stocCurent = 1;
     protected Integer stocMaxim;
     protected Float reducereApropiereExpirare;
     private Integer zileDeReducere;
@@ -63,5 +63,21 @@ public class Produs {
     }
     public ProduseNume getNumeProdus(){
         return this.numeProdus;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Produs produs = (Produs) obj;
+
+        // Comparăm toate câmpurile relevante, fără stocCurent
+        return numeProdus == produs.numeProdus &&
+                pret.equals(produs.pret) &&
+                dataExpirare.equals(produs.dataExpirare) &&
+                stocMaxim.equals(produs.stocMaxim) &&
+                reducereApropiereExpirare.equals(produs.reducereApropiereExpirare) &&
+                zileDeReducere.equals(produs.zileDeReducere);
     }
 }

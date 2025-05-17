@@ -8,9 +8,10 @@ public class Client extends User{
         super(first_name,last_name,mail,parola,buget);
     }
     private Boolean achizitieProdus(Produs produs, Integer cantitate,Magazin magazin) {
+//        System.out.println(magazin.getNumarProduse(produs.getNumeProdus()));
         if(magazin.getNumarProduse(produs.getNumeProdus()) >= cantitate){
-            Integer stocNou = produs.getStocCurent() - cantitate;
-            produs.actualizareStocCurent(stocNou);
+            produs.actualizareStocCurent(produs.getStocCurent() - cantitate);
+            System.out.println("-Au ramas " + produs.getStocCurent() + " produse de " + produs.getNumeProdus());
             return true;
         } else {
             System.out.println("Eroare Client: ");
@@ -35,8 +36,8 @@ public class Client extends User{
                 return true;
             } else
                 return false;
-        }
-        else {
+        } else {
+            System.out.println("Nu mai sunt destui bani");
             return false;
         }
     }
