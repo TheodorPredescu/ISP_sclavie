@@ -20,7 +20,6 @@ public class Main {
         primuFurnizor.adaugaStocProdus(magazinulMeu.getProdus(0),50);
         magazinulMeu.aplicareReduceriProduseAproapeExpirare();
         magazinulMeu.afisare();
-        System.out.println("------------------------------");
         Admin administrator = new Admin("Theo","Zeciu","test123@gmail.com","parola",69.420);
         magazinulMeu.setAdministrator(administrator);
         Client client = new Client("Maria","Ioana","mariaioanabun@gmail.com","parolaa",77.25);

@@ -33,6 +33,7 @@ public class Produs {
         System.out.println("Stoc Curent: " + stocCurent);
         System.out.println("Stoc Maxim: " + stocMaxim);
         System.out.println("Reducere: " + reducereApropiereExpirare);
+        System.out.println();
     }
     public void actualizareStocCurent(Integer stocNou){
         this.stocCurent = stocNou;
