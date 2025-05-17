@@ -8,7 +8,7 @@ public class Client extends User{
         super(first_name,last_name,mail,parola,buget);
     }
     private Boolean achizitieProdus(Produs produs, Integer cantitate,Magazin magazin) {
-//        System.out.println(magazin.getNumarProduse(produs.getNumeProdus()));
+        System.out.println(magazin.getNumarProduse(produs.getNumeProdus()));
         if(magazin.getNumarProduse(produs.getNumeProdus()) >= cantitate){
             produs.actualizareStocCurent(produs.getStocCurent() - cantitate);
             System.out.println("-Au ramas " + produs.getStocCurent() + " produse de " + produs.getNumeProdus());

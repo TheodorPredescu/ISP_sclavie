@@ -15,13 +15,14 @@ public class Produs {
     private Integer zileDeReducere;
     private Furnizor furnizor;
 
-    public Produs(ProduseNume numeProdus, Double pret, LocalDate dataExpirare, Integer stocMaxim, Float reducereApropiereExpirare,Integer zileDeReducere) {
+    public Produs(ProduseNume numeProdus, Double pret, LocalDate dataExpirare, Integer stocMaxim, Float reducereApropiereExpirare,Integer zileDeReducere, Furnizor furnizor) {
         this.numeProdus = numeProdus;
         this.pret = pret;
         this.dataExpirare = dataExpirare;
         this.stocMaxim = stocMaxim;
         this.reducereApropiereExpirare = reducereApropiereExpirare;
         this.zileDeReducere = zileDeReducere;
+        this.furnizor = furnizor;
     }
     public ProduseNume nume(){
         return this.numeProdus;
