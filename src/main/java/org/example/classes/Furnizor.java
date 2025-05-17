@@ -40,7 +40,7 @@ public class Furnizor {
         }
     }
     // Functie acceptare si contra oferta
-    public void confirmareComanda(ComandaProdus comanda) {
+    /*public void confirmareComanda(ComandaProdus comanda) {
             System.out.println();
             System.out.println("Cerere noua catre Furnizor!");
             System.out.println();
@@ -79,6 +79,26 @@ public class Furnizor {
                     System.out.println();
                     break;
             }
+    }*/
+    public void confirmareComanda(ComandaProdus comanda){
+        System.out.println("------------------------------");
+        System.out.println("Cerere noua catre Furnizor!");
+        System.out.println();
+        comanda.afisare();
+        comanda.setCerereProdusAdmin(true);
+        if (comanda.getPretCumparare() <= comanda.getProdus().getPret()*0.8) {
+            System.out.println("Comanda acceptata");
+            comanda.setCerereProdusFurnizor(true);
+            comanda.getFurnizor().adaugaStocProdus(comanda.getProdus(),comanda.getNumarBucatiComanda());
+        }
+        else {
+            comanda.setCerereProdusFurnizor(false);
+            Double pret = comanda.getPretCumparare() + comanda.getPretCumparare()*0.05;
+            System.out.println("Pret propus de la Furnizor: " + pret);
+            System.out.println();
+            modificareComanda(comanda, pret);
+            comanda.getAdmin().confirmareComanda(comanda);
+        }
     }
     public void modificareComanda(ComandaProdus comanda, Double pret) {
         comanda.setPretCumparare(pret);

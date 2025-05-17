@@ -22,7 +22,7 @@ public class Admin extends User {
         }
     }
     // Functie acceptare si contra oferta
-    public void confirmareComanda(ComandaProdus comanda){
+    /*public void confirmareComanda(ComandaProdus comanda){
             System.out.println();
             System.out.println("Cerere noua catre Admin!");
             System.out.println();
@@ -61,8 +61,27 @@ public class Admin extends User {
                     System.out.println();
                     break;
             }
+    }*/
+    public void confirmareComanda(ComandaProdus comanda){
+        System.out.println("------------------------------");
+        System.out.println("Cerere noua catre Admin!");
+        System.out.println();
+        comanda.afisare();
+        comanda.setCerereProdusFurnizor(true);
+        if (comanda.getPretCumparare() <= comanda.getProdus().getPret()*0.8) {
+            System.out.println("Comanda acceptata!");
+            comanda.setCerereProdusAdmin(true);
+            comanda.getFurnizor().adaugaStocProdus(comanda.getProdus(),comanda.getNumarBucatiComanda());
+        }
+        else {
+            comanda.setCerereProdusAdmin(false);
+            Double pret = comanda.getPretCumparare() - comanda.getPretCumparare()*0.1;
+            System.out.println("Pret propus de la Admin: " + pret);
+            System.out.println();
+            modificareComanda(comanda, pret);
+            comanda.getFurnizor().confirmareComanda(comanda);
+        }
     }
-
     public void modificareComanda(ComandaProdus comanda, Double pret){
         comanda.setPretCumparare(pret);
     }

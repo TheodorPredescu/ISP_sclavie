@@ -52,4 +52,7 @@ public class ComandaProdus {
     public Integer getNumarBucatiComanda(){
         return numarBucatiComanda;
     }
+    public Double getPretCumparare(){
+        return this.pretCumparare;
+    }
 }

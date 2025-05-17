@@ -23,7 +23,7 @@ public class Magazin {
         }
     }
     public void reincarcareStoc(Produs produs,Furnizor furnizor, Admin administrator){
-        ComandaProdus produse = new ComandaProdus(produs,furnizor,produs.stocMaxim,produs.getPret()*0.8,false,false,administrator);
+        ComandaProdus produse = new ComandaProdus(produs,furnizor,produs.stocMaxim,produs.getPret(),false,false,administrator);
         furnizor.confirmareComanda(produse);
     }
     public void setAdministrator(Admin administrator){
