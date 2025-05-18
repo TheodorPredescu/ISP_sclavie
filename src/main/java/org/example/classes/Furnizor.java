@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Furnizor {
 
     private FurnizoriNume numeFirma;
-    private ArrayList<Produs> listaProduse = new ArrayList<>();
+    public ArrayList<Produs> listaProduse = new ArrayList<>();
 
     public Furnizor(FurnizoriNume numeFirma) {
         this.numeFirma = numeFirma;

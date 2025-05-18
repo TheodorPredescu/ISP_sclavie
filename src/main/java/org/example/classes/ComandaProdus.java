@@ -55,4 +55,8 @@ public class ComandaProdus {
     public Double getPretCumparare(){
         return this.pretCumparare;
     }
+    public Boolean isCerereProdusFurnizor() {
+        return cerereProdusFurnizor;
+    }
+
 }
