@@ -65,6 +65,9 @@ public class Produs {
     public ProduseNume getNumeProdus(){
         return this.numeProdus;
     }
+    public Integer getStocMaxim() {
+        return this.stocMaxim;
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -75,10 +78,18 @@ public class Produs {
 
         // Comparăm toate câmpurile relevante, fără stocCurent
         return numeProdus == produs.numeProdus &&
-                pret.equals(produs.pret) &&
                 dataExpirare.equals(produs.dataExpirare) &&
                 stocMaxim.equals(produs.stocMaxim) &&
                 reducereApropiereExpirare.equals(produs.reducereApropiereExpirare) &&
                 zileDeReducere.equals(produs.zileDeReducere);
+    }
+    @Override
+    public int hashCode() {
+        int result = numeProdus != null ? numeProdus.hashCode() : 0;
+        result = 31 * result + (dataExpirare != null ? dataExpirare.hashCode() : 0);
+        result = 31 * result + (stocMaxim != null ? stocMaxim.hashCode() : 0);
+        result = 31 * result + (reducereApropiereExpirare != null ? reducereApropiereExpirare.hashCode() : 0);
+        result = 31 * result + (zileDeReducere != null ? zileDeReducere.hashCode() : 0);
+        return result;
     }
 }

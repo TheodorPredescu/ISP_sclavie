@@ -28,6 +28,12 @@ public class Furnizor {
         }
     }
     public Boolean adaugaStocProdus(Produs produs, Integer numarProduse) {
+
+        System.out.println("In stoc furnizor: ");
+        for (Produs prod : listaProduse) {
+            System.out.println("Produs: " + prod.getNumeProdus() + " numar produse: " + prod.getStocCurent());
+        }
+        System.out.println(listaProduse.contains(produs));
         if (listaProduse.contains(produs)) {
             if (numarProduse <= produs.stocMaxim) {
                 produs.actualizareStocCurent(numarProduse);
@@ -42,6 +48,7 @@ public class Furnizor {
             return false;
         }
     }
+
     // Functie acceptare si contra oferta
     /*public void confirmareComanda(ComandaProdus comanda) {
             System.out.println();
@@ -83,6 +90,7 @@ public class Furnizor {
                     break;
             }
     }*/
+
     public void confirmareComanda(ComandaProdus comanda){
         System.out.println("------------------------------");
         System.out.println("Cerere noua catre Furnizor!");

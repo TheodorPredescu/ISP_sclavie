@@ -17,22 +17,22 @@ public class Main {
         Magazin magazinulMeu = new Magazin();
         magazinulMeu.adaugaProduse(produs1);
         magazinulMeu.adaugaProduse(produs2);
-        primuFurnizor.adaugaStocProdus(magazinulMeu.getProdus(0),50);
+        primuFurnizor.adaugaStocProdus(magazinulMeu.getProdus(0),5);
         magazinulMeu.aplicareReduceriProduseAproapeExpirare();
         magazinulMeu.afisare();
         Admin administrator = new Admin("Theo","Zeciu","test123@gmail.com","parola",69.420);
         magazinulMeu.setAdministrator(administrator);
         Client client = new Client("Maria","Ioana","mariaioanabun@gmail.com","parolaa",125.5);
-        while (administrator.verificareStoc(magazinulMeu.getProdus(0))) {
-            if(client.adaugaInCos(magazinulMeu.getProdus(0), 25,magazinulMeu)) {
-                System.out.println("------------------------------");
-                magazinulMeu.afisare();
-            }
-            else{
-                System.out.println("Fonduri insuficiente!");
-                break;
-            }
-        }
+//        while (administrator.verificareStoc(magazinulMeu.getProdus(0))) {
+//            if(client.adaugaInCos(magazinulMeu.getProdus(0), 1,magazinulMeu)) {
+//                System.out.println("------------------------------");
+//                magazinulMeu.afisare();
+//            }
+//            else{
+//                System.out.println("Fonduri insuficiente!");
+//                break;
+//            }
+//        }
         client.adaugaInCos(magazinulMeu.getProdus(0), 25,magazinulMeu);
         System.out.println("------------------------------");
         magazinulMeu.afisare();
