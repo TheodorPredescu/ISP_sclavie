@@ -52,8 +52,8 @@ public class AdminTest {
         admin.confirmareComanda(comanda);
 
         // Assert
-        // Pretul se va modifica in 9.5 + 5% = 9.975 -> peste 8.0 => acceptat de admin
-        assertEquals(9.975, comanda.getPretCumparare());
+        // Pretul se va modifica in 9.5 -10% = 8.55
+        assertEquals(8.55, comanda.getPretCumparare());
         assertTrue(comanda.isCerereProdusFurnizor());
     }
 
@@ -70,14 +70,54 @@ public class AdminTest {
         furnizor.adaugaProduse(produs);
 
         // Pret initial mare -> contraoferta insuficienta
-        // ex: 7.4 + 5% = 7.77 < 8.0 => respins complet
         ComandaProdus comanda = new ComandaProdus(produs, furnizor, 10, 7.4, false, false, admin);
 
         // Act
         admin.confirmareComanda(comanda);
 
         // Assert
-        assertFalse(comanda.isCerereProdusFurnizor());
-        assertEquals(7.77, comanda.getPretCumparare(), 0.001);
+        assertTrue(comanda.isCerereProdusFurnizor());
+        assertEquals(7.4, comanda.getPretCumparare(), 0.001);
     }
+    @Test
+    public void testConfirmareComandaPretLimitaAcceptare() {
+        Admin admin = new Admin("Andrei", "Pop", "andrei@mail.com", "parola123", 3000.0);
+        Furnizor furnizor = new Furnizor(FurnizoriNume.NESTLE);
+        Produs produs = new Produs(
+                ProduseNume.FAINA, 10.0,
+                LocalDate.now().plusDays(10),
+                100, 5.0f, 3, furnizor
+        );
+        furnizor.adaugaProduse(produs);
+
+        ComandaProdus comanda = new ComandaProdus(produs, furnizor, 10, 8.0, false, false, admin);
+
+        admin.confirmareComanda(comanda);
+
+        assertTrue(comanda.isCerereProdusFurnizor(), "Comanda ar trebui acceptata direct");
+        assertEquals(8.0, comanda.getPretCumparare(), 0.001);
+    }
+    @Test
+    public void testAdaugareProdusInMagazinDupaComandaAcceptata() {
+        Magazin magazin = new Magazin();
+        Admin admin = new Admin("Alina", "Dobre", "alina@mail.com", "parola123", 5000.0);
+        magazin.setAdministrator(admin);
+
+        Furnizor furnizor = new Furnizor(FurnizoriNume.COCA_COLA);
+        Produs produs = new Produs(
+                ProduseNume.PAINE, 10.0,
+                LocalDate.now().plusDays(10),
+                0, 5.0f, 3, furnizor
+        );
+        furnizor.adaugaProduse(produs);
+
+        ComandaProdus comanda = new ComandaProdus(produs, furnizor, 10, 7.0, false, false, admin);
+
+        admin.confirmareComanda(comanda);
+        magazin.adaugaProduse(produs);
+
+        assertEquals(1, magazin.getNumarProduse(ProduseNume.PAINE));
+    }
+
+
 }
