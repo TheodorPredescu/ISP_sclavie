@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Furnizor {
 
     private FurnizoriNume numeFirma;
-    public ArrayList<Produs> listaProduse = new ArrayList<>();
+    public ArrayList<Produs> listaProduse = new ArrayList<Produs>();
 
     public Furnizor(FurnizoriNume numeFirma) {
         this.numeFirma = numeFirma;
@@ -27,16 +27,19 @@ public class Furnizor {
             produs.afisare();
         }
     }
-    public void adaugaStocProdus(Produs produs, Integer numarProduse) {
+    public Boolean adaugaStocProdus(Produs produs, Integer numarProduse) {
         if (listaProduse.contains(produs)) {
             if (numarProduse <= produs.stocMaxim) {
                 produs.actualizareStocCurent(numarProduse);
+                return true;
             } else {
                 System.err.println("Stocul curent este mai mare decat stocul maxim!");
+                return false;
             }
         }
         else {
             System.err.println("Acest furnizor nu detine acest produs!");
+            return false;
         }
     }
     // Functie acceptare si contra oferta
@@ -86,7 +89,7 @@ public class Furnizor {
         System.out.println();
         comanda.afisare();
         comanda.setCerereProdusAdmin(true);
-        if (comanda.getPretCumparare() <= comanda.getProdus().getPret()*0.8) {
+        if (comanda.getPretCumparare() >= comanda.getProdus().getPret()*0.8) {
             System.out.println("Comanda acceptata");
             comanda.setCerereProdusFurnizor(true);
             comanda.getFurnizor().adaugaStocProdus(comanda.getProdus(),comanda.getNumarBucatiComanda());
