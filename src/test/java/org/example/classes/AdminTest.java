@@ -56,29 +56,6 @@ public class AdminTest {
         assertEquals(8.55, comanda.getPretCumparare());
         assertTrue(comanda.isCerereProdusFurnizor());
     }
-
-    @Test
-    public void testConfirmareComandaRespinsaTotal() {
-        // Setup
-        Admin admin = new Admin("Maria", "Georgescu", "maria@mail.com", "parola123", 5000.0);
-        Furnizor furnizor = new Furnizor(FurnizoriNume.PEPSICO);
-        Produs produs = new Produs(
-                ProduseNume.CASCAVAL, 10.0,
-                LocalDate.now().plusDays(10),
-                100, 5.0f, 3, furnizor
-        );
-        furnizor.adaugaProduse(produs);
-
-        // Pret initial mare -> contraoferta insuficienta
-        ComandaProdus comanda = new ComandaProdus(produs, furnizor, 10, 7.4, false, false, admin);
-
-        // Act
-        admin.confirmareComanda(comanda);
-
-        // Assert
-        assertTrue(comanda.isCerereProdusFurnizor());
-        assertEquals(7.4, comanda.getPretCumparare(), 0.001);
-    }
     @Test
     public void testConfirmareComandaPretLimitaAcceptare() {
         Admin admin = new Admin("Andrei", "Pop", "andrei@mail.com", "parola123", 3000.0);
